@@ -772,44 +772,9 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
 		font-size: 3.5em;
 	}
 	
-	/* VIDEO GRID TABLET FIXES */
-	.video-grid {
-		grid-template-columns: repeat(4, 1fr);
-		gap: 1px;
-		width: calc(100% - 60px);
-		margin: 0 30px;
-		padding: 30px 0;
-	}
 	
-	.video-item {
-		aspect-ratio: 3 / 4;
-		border-radius: 6px;
-	}
 	
-	.video-item:hover {
-		transform: scale(1.15);
-		transition: transform 0.3s ease;
-		z-index: 10;
-	}
 	
-	.video-description {
-		font-size: 11px;
-		margin-top: 8px;
-		padding: 0 8px;
-	}
-	
-	.video-container {
-		width: 100%;
-		overflow: visible;
-	}
-	
-	/* Ensure original slider elements don't interfere with video grid */
-	.slider .video-bg,
-	.slider .animation-hero,
-	.slider .swiper-container {
-		display: none;
-	}
-}
 
 
 /* RESPONSIVE MOBILE FIXES */
@@ -882,148 +847,188 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
 		height: 0 !important;
 	}
 	
-/* VIDEO GRID MOBILE FIXES - EXPAND PROPERLY */
+	
+	
+
+	
+	/* ===========================
+   BASE VIDEO GRID (DESKTOP)
+   =========================== */
 .video-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1px !important;  /* CHANGED TO 1px */
-    width: calc(100% - 2px) !important;  /* CHANGED: 30px to 2px (1px each side) */
-    margin: 0 1px !important;  /* CHANGED: 15px to 1px */
-    padding: 1px 0 !important;  /* CHANGED: 20px to 1px */
-    position: relative !important;
-    overflow: visible !important;
-    height: auto !important;
-    min-height: auto !important;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    width: calc(100% - 120px);
+    margin: 0 60px;
+    padding: 0;
+    position: relative;
 }
-	
-	.video-item {
-		width: 100% !important;
-		height: auto !important;
-		aspect-ratio: 1 / 1 !important;
-		border-radius: 1px !important;
-		object-fit: cover !important;
-		display: block !important;
-		position: relative !important;
-	}
-	
-	.video-item:hover {
-		transform: scale(1.05) !important;
-		transition: transform 0.3s ease !important;
-		z-index: 10 !important;
-	}
-	
-	.video-description {
-		font-size: 12px !important;
-		margin-top: 8px !important;
-		padding: 0 5px !important;
-		color: #ffffff !important;
-		text-align: center !important;
-		line-height: 1.3 !important;
-		display: block !important;
-	}
-	
-	.video-container {
-		width: 100% !important;
-		overflow: visible !important;
-		display: flex !important;
-		flex-direction: column !important;
-		align-items: center !important;
-		justify-content: flex-start !important;
-		margin: 0 !important;
-		padding: 0 !important;
-	}
-	
-/* For taller mobile screens (1080x2400) */
+
+.video-item {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 1px;
+    display: block;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.video-item:hover {
+    transform: scale(1.3);
+    z-index: 10;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+}
+
+.video-description {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Disable slider elements when video grid is used */
+.slider .video-bg,
+.slider .animation-hero,
+.slider .swiper-container {
+    display: none;
+}
+
+/* ===========================
+   TABLET FIXES (≤1024px)
+   =========================== */
+@media only screen and (max-width: 1024px) {
+    .video-grid {
+        grid-template-columns: repeat(4, 1fr);
+        width: calc(100% - 60px);
+        margin: 0 30px;
+        padding: 30px 0;
+    }
+
+    .video-item {
+        aspect-ratio: 3 / 4;
+        border-radius: 6px;
+    }
+
+    .video-item:hover {
+        transform: scale(1.15);
+    }
+
+    .video-description {
+        font-size: 11px;
+        margin-top: 8px;
+        padding: 0 8px;
+    }
+}
+
+/* ===========================
+   MOBILE GRID (≤767px)
+   =========================== */
+@media only screen and (max-width: 767px) {
+    .video-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        width: calc(100% - 2px);
+        margin: 0 1px;
+        padding: 1px 0;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .video-item {
+        aspect-ratio: 1 / 1;
+        border-radius: 1px;
+    }
+
+    .video-item:hover {
+        transform: scale(1.05);
+    }
+
+    .video-description {
+        font-size: 12px;
+        padding: 0 5px;
+        line-height: 1.3;
+        color: #ffffff;
+    }
+
+    .video-container {
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+/* ===========================
+   MOBILE – TALL SCREENS
+   =========================== */
 @media only screen and (max-width: 767px) and (min-height: 2000px) {
     .video-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 1px !important;  /* CHANGED TO 1px */
-        padding: 1px 0 !important;  /* CHANGED: 30px to 1px */
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        padding: 1px 0;
     }
-    
+
     .video-item {
-        aspect-ratio: 1 / 1 !important;
+        aspect-ratio: 1 / 1;
     }
 }
-	
-/* For very small screens */
+
+/* ===========================
+   VERY SMALL SCREENS (≤480px)
+   =========================== */
 @media only screen and (max-width: 480px) {
     .video-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 1px !important;  /* CHANGED: 6px to 1px */
-        width: calc(100% - 2px) !important;  /* CHANGED */
-        margin: 0 1px !important;  /* CHANGED */
+        grid-template-columns: repeat(4, 1fr);
+        width: calc(100% - 2px);
+        margin: 0 1px;
+        gap: 1px;
     }
-    
+
     .video-item {
-        aspect-ratio: 1 / 1 !important;
+        aspect-ratio: 1 / 1;
     }
 }
+
+/* ===========================
+   VIDEO TAG (GALLERY)
+   =========================== */
+.video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
 }
 
-  /* Gallery videos */
+.video video {
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    display: block;
+}
 
-
-.video{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; overflow: hidden; /*background: #FFFFFF;*/}
-.video video{max-height: 100%; max-width: 100%;min-height: 100%; min-width: 100%; float: left;display: block; /* mix-blend-mode: hard-light; -webkit-filter: grayscale(100%) contrast(1); filter: grayscale(100%) contrast(0.8);*/}
-
-  
-/* Make text with a specific class name "black-text" black */
+/* ===========================
+   TEXT COLORS
+   =========================== */
 .black-text {
     color: #000000;
     font-weight: bold;
 }
 
-
-
-
-/* VIDEO GRID - ADJUSTED TO CONTENT WIDTH */
-
-.video-grid{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; width: calc(100% - 120px); margin: 0 60px; padding: 0; position: relative; }
-.video-item{ width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 1px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin: 0; padding: 0; position: relative; }
-.video-item:hover{ transform: scale(1.3); transition: transform 0.2s; z-index: 10; }
-.video-container{ display: flex; flex-direction: column; align-items: center; margin: 0; padding: 0; }
-.video-description{ margin-top: 0px; font-size: 0px; color: #FFFFFF; text-align: center; }
-
-
-
-
-.video-item {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important;  /* Keep square for mobile */
-    border-radius: 1px !important;   /* Smaller radius */
-    object-fit: cover !important;
-    display: block !important;
-    position: relative !important;
-}
-
-
-
-
-.video-item:hover{ 
-	transform: scale(1.3); 
-	transition: transform 0.2s; 
-	z-index: 10; 
-}
-.video-container{ 
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-	margin: 0; 
-	padding: 0; 
-	overflow: visible;
-}
-.video-description{ 
-	margin-top: 10px; 
-	font-size: 12px; 
-	color: #FFFFFF; 
-	text-align: center; 
-	display: block;
-}
-
-
-
+/* ===========================
+   CONTENT BLOCK STYLES
+   =========================== */
 .content-black {
     background: #000000;
     color: #ffffff;
@@ -1056,9 +1061,6 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
     color: #ffffff;
 }
 
-
-	
-	
 	
 
 /* Typewriter Effect */
