@@ -867,7 +867,7 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
 .video-item {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 9 / 16;
     object-fit: cover;
     border-radius: 1px;
     display: block;
@@ -915,7 +915,7 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
     }
 
     .video-item {
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 9 / 16;
         border-radius: 6px;
     }
 
@@ -946,7 +946,7 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
     }
 
     .video-item {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 9 / 16;
         border-radius: 1px;
     }
 
@@ -978,7 +978,7 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
     }
 
     .video-item {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 9 / 16;
     }
 }
 
@@ -994,7 +994,7 @@ background-image: -ms-linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(19,19,20,
     }
 
     .video-item {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 9 / 16;
     }
 }
 
